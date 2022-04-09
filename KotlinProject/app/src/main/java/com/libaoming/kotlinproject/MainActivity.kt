@@ -3,6 +3,7 @@ package com.libaoming.kotlinproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,5 +13,7 @@ class MainActivity : AppCompatActivity() {
         Log.e("limb","测试git456")
         Log.e("limb","测试git789")
         Log.e("limb","测试git000")
+
+        Toast.makeText(this, "11", Toast.LENGTH_SHORT).show()
     }
 }
