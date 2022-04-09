@@ -10,5 +10,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.e("limb","测试git123")
         Log.e("limb","测试git456")
+        Log.e("limb","测试git789")
     }
 }
