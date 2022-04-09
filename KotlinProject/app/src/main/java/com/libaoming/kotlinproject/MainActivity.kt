@@ -11,5 +11,6 @@ class MainActivity : AppCompatActivity() {
         Log.e("limb","测试git123")
         Log.e("limb","测试git456")
         Log.e("limb","测试git789")
+        Log.e("limb","测试git000")
     }
 }
