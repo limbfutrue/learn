@@ -5,4 +5,5 @@ class Person {
     var age:Int = 18
     var sex:String? = "男"
     var type:Int = 0
+    val d:Int = 1
 }
