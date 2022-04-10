@@ -1,4 +1,4 @@
-package com.libaoming.kotlinproject
+package com.libaoming.kotlinproject.bean
 
 class Person {
     var name:String?=null

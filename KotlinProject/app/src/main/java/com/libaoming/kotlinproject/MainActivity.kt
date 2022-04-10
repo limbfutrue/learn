@@ -3,9 +3,16 @@ package com.libaoming.kotlinproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.libaoming.kotlinproject.adapter.RvAdapter
+import com.libaoming.kotlinproject.bean.HomeData
 import com.libaoming.kotlinproject.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
+
+    private lateinit var adapter: RvAdapter
+
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -13,24 +20,31 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val list:ArrayList<String> = ArrayList()
-        list.apply {
-            add("123")
-            add("123")
-            add("123")
-            add("123")
-            add("123")
-        }
+        initView()
+        initData()
+    }
 
-        val adp = Adapter(this,list)
-        binding.lv.adapter = adp
+    private fun initView() {
+        val rvManager = LinearLayoutManager(this)
+        binding.rvList.layoutManager = rvManager
+        adapter = RvAdapter(this)
+        binding.rvList.adapter = adapter
 
-        binding.lv.onItemClickListener = AdapterView.OnItemClickListener {
-                _, _, position, _ ->
-            list[position].showToast()
-            (list[position].logE()+"123").logD()
-            startActivity(Intent(this,Main2Activity::class.java))
-        }
+
+    }
+
+    private fun initData(){
+        var listData:ArrayList<HomeData> = ArrayList()
+
+        listData.add(HomeData(1,"type1","style1"))
+        listData.add(HomeData(2,"type2","style2"))
+        listData.add(HomeData(1,"type1","style1"))
+        listData.add(HomeData(1,"type1","style1"))
+        listData.add(HomeData(1,"type1","style1"))
+        listData.add(HomeData(2,"type2","style2"))
+        listData.add(HomeData(2,"type2","style2"))
+
+        adapter.setData(listData)
     }
 
 }

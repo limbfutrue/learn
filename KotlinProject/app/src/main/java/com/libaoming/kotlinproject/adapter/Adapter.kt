@@ -1,4 +1,4 @@
-package com.libaoming.kotlinproject
+package com.libaoming.kotlinproject.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.libaoming.kotlinproject.R
 
 class Adapter(content:Context,list:ArrayList<String>) : BaseAdapter() {
 
