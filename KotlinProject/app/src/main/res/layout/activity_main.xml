@@ -6,10 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+   <Button
+       android:id="@+id/bt_click"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent" />
+
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rv_list"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       />
-
+       android:layout_marginTop="100dp"
+       android:background="#00ff00"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

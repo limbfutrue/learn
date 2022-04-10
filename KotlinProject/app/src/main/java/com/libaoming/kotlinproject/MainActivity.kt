@@ -1,8 +1,6 @@
 package com.libaoming.kotlinproject
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.libaoming.kotlinproject.adapter.RvAdapter
@@ -13,9 +11,7 @@ class MainActivity : BaseActivity() {
 
     private lateinit var adapter: RvAdapter
 
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
+    override val binding by bindLayout<ActivityMainBinding>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +25,12 @@ class MainActivity : BaseActivity() {
         binding.rvList.layoutManager = rvManager
         adapter = RvAdapter(this)
         binding.rvList.adapter = adapter
+
+        binding.btClick.click {
+            "kotlin扩展函数学习".logD()
+            "kotlin扩展函数学习".showToast()
+            start<Main2Activity>()
+        }
 
 
     }

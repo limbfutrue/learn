@@ -11,7 +11,7 @@ import com.libaoming.kotlinproject.bean.Constans
 import com.libaoming.kotlinproject.bean.HomeData
 import com.libaoming.kotlinproject.holder.BaseViewHolder
 
-class RvAdapter(var context:Context):RecyclerView.Adapter<BaseViewHolder>() {
+class RvAdapter(private var context:Context):RecyclerView.Adapter<BaseViewHolder>() {
     private var dataList = ArrayList<HomeData>()
 
     /**
