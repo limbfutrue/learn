@@ -1,15 +1,36 @@
 package com.libaoming.kotlinproject
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.widget.AdapterView
+import com.libaoming.kotlinproject.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
+        val list:ArrayList<String> = ArrayList()
+        list.apply {
+            add("123")
+            add("123")
+            add("123")
+            add("123")
+            add("123")
+        }
 
-        Toast.makeText(this, "1111", Toast.LENGTH_SHORT).show()
+        val adp = Adapter(this,list)
+        binding.lv.adapter = adp
+
+        binding.lv.onItemClickListener = AdapterView.OnItemClickListener {
+                _, _, position, _ ->
+            list[position].showToast()
+            (list[position].logE()+"123").logD()
+            startActivity(Intent(this,Main2Activity::class.java))
+        }
     }
+
 }
