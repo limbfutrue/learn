@@ -2,7 +2,6 @@ package com.libaoming.kotlinproject
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.libaoming.kotlinproject.adapter.RvAdapter
 import com.libaoming.kotlinproject.bean.HomeData
 import com.libaoming.kotlinproject.databinding.ActivityMainBinding
@@ -36,7 +35,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initData(){
-        var listData:ArrayList<HomeData> = ArrayList()
+        val listData:ArrayList<HomeData> = ArrayList()
 
         listData.add(HomeData(1,"type1","style1"))
         listData.add(HomeData(2,"type2","style2"))
