@@ -1,25 +1,22 @@
 package com.libaoming.kotlinproject
 
-import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.libaoming.kotlinproject.adapter.RvAdapter
 import com.libaoming.kotlinproject.bean.HomeData
 import com.libaoming.kotlinproject.databinding.ActivityMainBinding
+import com.libaoming.kotlinproject.sample.room.RoomActivity
+import com.libaoming.kotlinproject.viewmodule.HomeViewModule
 
 class MainActivity : BaseActivity() {
 
     private lateinit var adapter: RvAdapter
+    private var list = MutableLiveData<String>()
+    private val binding by inflate<ActivityMainBinding>(true)
+    private var homeModule:HomeViewModule?=null
 
-    override val binding by bindLayout<ActivityMainBinding>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        initView()
-        initData()
-    }
-
-    private fun initView() {
+    override fun initView() {
         val rvManager = LinearLayoutManager(this)
         binding.rvList.layoutManager = rvManager
         adapter = RvAdapter(this)
@@ -28,15 +25,27 @@ class MainActivity : BaseActivity() {
         binding.btClick.click {
             "kotlin扩展函数学习".logD()
             "kotlin扩展函数学习".showToast()
-            start<Main2Activity>()
+            start<RoomActivity>()
         }
 
+        list.value = "123"
+        list.observe(this){
+            Log.e("limb","改变了$it")
+            list.value.logE()
+        }
 
+        method(list.value ?: "ll"){it,i ->
+            (it+i).logE()
+        }
     }
 
-    private fun initData(){
+
+    private fun method(str:String,add:(str:String,i:Int)->Unit){
+        add(str,0)
+    }
+
+    override fun initData(){
         val listData:ArrayList<HomeData> = ArrayList()
-
         listData.add(HomeData(1,"type1","style1"))
         listData.add(HomeData(2,"type2","style2"))
         listData.add(HomeData(1,"type1","style1"))
@@ -44,7 +53,6 @@ class MainActivity : BaseActivity() {
         listData.add(HomeData(1,"type1","style1"))
         listData.add(HomeData(2,"type2","style2"))
         listData.add(HomeData(2,"type2","style2"))
-
         adapter.setData(listData)
     }
 

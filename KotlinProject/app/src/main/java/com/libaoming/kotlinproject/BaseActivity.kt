@@ -1,6 +1,7 @@
 package com.libaoming.kotlinproject
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -14,27 +15,14 @@ import java.lang.reflect.Method
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val binding: ViewBinding?
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        binding?.root?.apply {
-            setContentView(this)
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initView()
+        initData()
     }
 
-    /**
-     * 实例化布局
-     *
-     */
-    protected inline fun <reified T> bindLayout(): Lazy<T> where T : ViewBinding {
-        return lazy {
-            val clazz: Class<T> = T::class.java
-            val method: Method = clazz.getMethod("inflate", LayoutInflater::class.java)
-            method.invoke(null, layoutInflater) as T
-        }
-    }
-
+    abstract fun initView()
+    abstract fun initData()
 
     /**
      * 扩展方法里的this代表是T
