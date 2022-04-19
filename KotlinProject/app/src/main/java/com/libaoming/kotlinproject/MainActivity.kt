@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.libaoming.kotlinproject.adapter.RvAdapter
 import com.libaoming.kotlinproject.bean.HomeData
 import com.libaoming.kotlinproject.databinding.ActivityMainBinding
-import com.libaoming.kotlinproject.sample.room.RoomActivity
+import com.libaoming.kotlinproject.sample.navigation.NavigationActivity
 import com.libaoming.kotlinproject.viewmodule.HomeViewModule
 
 class MainActivity : BaseActivity() {
@@ -26,7 +26,7 @@ class MainActivity : BaseActivity() {
         binding.btClick.click {
             "kotlin扩展函数学习".logD()
             "kotlin扩展函数学习".showToast()
-            start<RoomActivity>()
+            start<NavigationActivity>()
         }
 
         list.observe(this){
