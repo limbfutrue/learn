@@ -8,7 +8,7 @@ import androidx.viewbinding.ViewBinding
 /**
  * Activity ViewBinding通用封装
  * 内联函数，将代码直接代入调用的地方,内联函数可以避免入栈出栈的消耗，但是注意内联函数不要过大
- * @param isRoot 是否将viewbinding作为activity的根布局，继承自BaseTitleActivity的需要设置为false
+ * @param isRoot 是否将viewbinding作为activity的根布局
  */
 inline fun <reified VB : ViewBinding> Activity.inflate(isRoot: Boolean) = lazy {
     if (isRoot)

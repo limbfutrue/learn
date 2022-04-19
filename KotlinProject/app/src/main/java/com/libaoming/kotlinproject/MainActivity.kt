@@ -2,6 +2,7 @@ package com.libaoming.kotlinproject
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.libaoming.kotlinproject.adapter.RvAdapter
 import com.libaoming.kotlinproject.bean.HomeData
@@ -28,12 +29,13 @@ class MainActivity : BaseActivity() {
             start<RoomActivity>()
         }
 
-        list.value = "123"
         list.observe(this){
             Log.e("limb","改变了$it")
             list.value.logE()
         }
 
+        homeModule = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(HomeViewModule::class.java)
+        homeModule!!.requestData(list)
         method(list.value ?: "ll"){it,i ->
             (it+i).logE()
         }

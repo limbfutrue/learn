@@ -29,7 +29,10 @@ class RoomActivity : BaseActivity() {
         private var context = con
         override fun run() {
             super.run()
-            val stuDao: LimbDataBase = Room.databaseBuilder(context,LimbDataBase::class.java,"limb").build()
+            val stuDao: LimbDataBase = Room.databaseBuilder(context,LimbDataBase::class.java,"limb")
+//                //允许在主线程操作
+//                .allowMainThreadQueries()
+                .build()
             val dao: StudentDao = stuDao.stuDao()
             dao.insert(Student("Limb",18,"HN")
                 ,Student("ZhangSan",30,"HN")
