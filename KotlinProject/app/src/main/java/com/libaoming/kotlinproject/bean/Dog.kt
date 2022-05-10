@@ -29,14 +29,43 @@ class Dog private constructor(con: Context?) {
         fun main(args:Array<String>){
             println(Dog::class)
             println(Dog::class.java)
-            println(Dog.javaClass)
+//            println(Dog.javaClass)
             A.aa()
+            B().also {
+                val a: String = "bbb"
+            }.also {
+                it.bb()
+            }
+
+            B().apply {
+
+            }.apply {
+
+            }
+
+            B().let {
+                val a:String
+            }
+
+            val l = B().run {
+                bb()
+                13.0f
+            }.toDouble().run {
+                ""
+            }.length
+
         }
     }
 
     object A{
         fun aa(){
             println("object A" + A.javaClass)
+        }
+    }
+
+    class B{
+        fun bb(): String {
+            return "aaa"
         }
     }
 }
