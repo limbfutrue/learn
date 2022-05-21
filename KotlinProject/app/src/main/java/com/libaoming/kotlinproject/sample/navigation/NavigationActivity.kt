@@ -27,4 +27,8 @@ class NavigationActivity : BaseActivity() {
     override fun initData() {
 
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
 }
