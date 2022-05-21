@@ -29,7 +29,7 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f14c90ff-48b3-4291-ba3e-7c551aaf2652">
       <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "Student";
-select name,age from "Student" where name == 'Limb';]]></console>
+select name,age,address from "Student" where name == 'Limb';]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
