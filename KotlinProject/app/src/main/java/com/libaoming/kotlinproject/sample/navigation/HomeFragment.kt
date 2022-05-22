@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
         binding.btHomeJump.setOnClickListener {
             it.findNavController().navigate(R.id.otherFragment)
         }
+        Log.e("TAG", "onCreateView: ")
         return binding.root
     }
 }
