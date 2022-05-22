@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
             it.findNavController().navigate(R.id.otherFragment)
         }
         Log.e("TAG", "onCreateView: TEST Patch")
+        Log.e("TAG", "onCreateView: TEST Patch")
         return binding.root
     }
 }
