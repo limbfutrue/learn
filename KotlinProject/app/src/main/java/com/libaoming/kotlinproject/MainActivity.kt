@@ -18,6 +18,7 @@ class MainActivity : BaseActivity() {
     private var homeModule:HomeViewModule?=null
 
     override fun initView() {
+        Log.e("111","initView")
         val rvManager = LinearLayoutManager(this)
         binding.rvList.layoutManager = rvManager
         adapter = RvAdapter(this)

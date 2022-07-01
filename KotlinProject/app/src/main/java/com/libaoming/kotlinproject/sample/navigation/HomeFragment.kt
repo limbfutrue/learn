@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.e("111","start")
         binding.btHomeJump.setOnClickListener {
             it.findNavController().navigate(R.id.otherFragment)
         }
