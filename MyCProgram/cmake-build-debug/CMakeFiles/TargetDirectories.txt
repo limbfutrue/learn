@@ -1,3 +1,0 @@
-E:/learn/MyCProgram/cmake-build-debug/CMakeFiles/c_test.dir
-E:/learn/MyCProgram/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/learn/MyCProgram/cmake-build-debug/CMakeFiles/rebuild_cache.dir
